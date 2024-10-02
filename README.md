@@ -6,12 +6,15 @@ This app was auto-generated using the default settings on the commandline.
 
 ## Instructions to run
 
-If you're me on my ubuntu:
+If you're me on my ubuntu, you'll run these.
 
 ```
 pkgx npm i
-DEBUG=express-metmuseum:* pkgx npm start
+DEBUG=express-metmuseum:* pkgx npm run watch
 ```
+
+I use `npm run watch` instead of `npm start` because I added dependencies to the project to allow me to see *certain* changes immediately in the browser. (Weeell, it takes a second. But you know.) Note that changes on pages that are not rendered using `response.render()` but rather `response.send()` or `response.json()` or similar will not be automatically updated visually; you must manually refresh the page in your browser. You will also need to update for `public/` file changes, **like CSS revisions**. You shouldn't need to restart the app in your commandline, though.
+
 
 If you're not me on my ubuntu but you're on some other linux pretty boy:
 

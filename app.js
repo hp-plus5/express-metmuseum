@@ -3,11 +3,30 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var livereload = require("livereload");
+var connectLiveReload = require("connect-livereload");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const env = process.env.NODE_ENV || "development";
+
+// prepare to use live reload in a dev environment
+if (env === "development") {
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+}
+
 var app = express();
+
+// use live reload in a dev environment
+if (env === "development") {
+  app.use(connectLiveReload());
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
