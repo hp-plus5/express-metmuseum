@@ -1,8 +1,152 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Piazzolla:wght@300&display=swap");
+
+:root,
+[data-theme="medieval"] {
+  --color-header: #dea033;
+  --color-text: #395cc9;
+  --color-neutral-light: #e3ded9;
+  --color-neutral-mid: #9c8a72;
+  --color-neutral-dark: #56391a;
+
+
+  --color-contrast-lower: hsl(0, 0%, 95%);
+  --color-contrast-low: hsl(240, 1%, 83%);
+  --color-contrast-medium: hsl(240, 1%, 48%);
+  --color-contrast-high: hsl(240, 4%, 20%);
+  --color-contrast-higher: #1c3025;
 }
 
-a {
-  color: #00B7FF;
+/* Medieval palette color grab references: */
+.blues {
+  color: #244081;
+  color: #0f2a63; /* confirmed pretty... */
+  color: #506b9e;
+  color: #2a4986; /* i think looks the best on text */
+  color: #061562;
+  color: #395cc9; /* the truest, most consistent in tone blue i could get */
+}
+.golds {
+  color: #e89b26; /* too yellow */
+  color: #c29014; /* decent */
+  color: #b3610f;
+  color: #dea033; /* halo on ceiling */
+}
+.others {
+  color: #81440f; /* skin tone */
+  color: #9e5709;
+  color: #b5722a;
+  color: #320503; /* a dark shirt */
+  color: #b44223; /* red in flag */
+  color: #c12f0f; /* disciple's shirt */
+}
+
+:root,
+[data-theme="modern"] {
+  --color-header: red;
+  --color-text: yellow;
+  --color-contrast-lower: hsl(0, 0%, 95%);
+  --color-contrast-low: hsl(240, 1%, 83%);
+  --color-contrast-medium: hsl(240, 1%, 48%);
+  --color-contrast-high: hsl(240, 4%, 20%);
+  --color-contrast-higher: #1c3025;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background-image: url('../images/textured-cloth.jpeg');
+  font: 1.2rem "Piazzolla";
+}
+
+main {
+  width: 70%;
+  place-items: center;
+  color: var(--color-header);
+}
+
+#featured {
+  display: flex;
+  align-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.framed {
+  margin: 0 0 50px 0;
+}
+
+.placard {
+  position: relative;
+  margin: 0 20px 0 0;
+  width: 275px;
+  height: 150px;
+  padding: 1em;
+  border: 3px solid #ffd07b;
+  background: linear-gradient(133deg, rgba(232, 155, 38, 1) 0%, rgba(227, 174, 37, 1) 60%, rgba(252, 176, 69, 1) 100%);
+  
+  &:before {
+    content: '';
+    position: absolute;
+    width: 345px;
+    height: 215px;
+    background: linear-gradient(16deg, rgba(232,155,38,1) 0%, rgb(199 147 11) 66%, rgba(252,176,69,1) 100%);
+    z-index: -1;
+    top: -15px;
+    left: -15px;
+  } 
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 355px;
+    height: 225px;
+    background: linear-gradient(113deg, rgba(232, 155, 38, 1) 0%, rgba(227, 174, 37, 1) 60%, rgba(252, 176, 69, 1) 100%);
+    z-index: -2;
+    top: -20px;
+    left: -20px;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: 0 0 .4em 0;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: .8em;
+    margin: 0 0 .3em 0;
+    padding: 0;
+  }
+
+  p {
+    color: var(--color-text);
+    font-size: .6em;
+    margin: 0;
+    
+    &.museum_details {
+      margin-top: 0.8em;
+    }
+    
+    a {
+      font-size: 1em;
+    }
+  }
+  
+  a {
+    color: #0f2a63;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    width: 90%;
+  }
 }
