@@ -12,12 +12,13 @@ block content
           a(href=apiResult.objectWikidata_URL) #{apiResult.title}
         h4.artist_name
           a(href=apiResult.artistWikidata_URL) #{apiResult.artistDisplayName}
-        p.object_date= apiResult.objectDate
+        p.creation_date= apiResult.objectDate
         p.artwork_medium= apiResult.medium
         p.museum_details 
           a(href=apiResult.linkResource) Metropolitan Museum of Art
-
-    button#theme-button toggle text color
   else 
     p No art here yet!
-    
+
+  
+  button#theme-button toggle text color
+  

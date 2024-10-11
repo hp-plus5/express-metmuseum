@@ -3,7 +3,7 @@
 :root,
 [data-theme="medieval"] {
   --color-header: #dea033;
-  --color-text: #395cc9;
+  --color-text: #2a4986;
   --color-neutral-light: #e3ded9;
   --color-neutral-mid: #9c8a72;
   --color-neutral-dark: #56391a;
@@ -129,10 +129,11 @@ main {
   p {
     color: var(--color-text);
     font-size: .6em;
+    font-weight: 600;
     margin: 0;
     
     &.museum_details {
-      margin-top: 0.8em;
+      margin-top: 1.5em;
     }
     
     a {
