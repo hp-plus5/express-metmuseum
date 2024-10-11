@@ -4,6 +4,12 @@ This is a fun little project I'm messing around with Express and Node.js with, s
 
 This app was auto-generated using the default settings on the commandline.
 
+## Most Interesting Parts
+
+I wanted to display a list of different paintings. Thanks to the inner workings of the Met API, this meant I needed to make one asynchronous call to get the IDs of the works I wanted to see, then make *another async call for each of those IDs*, then return them and my template to the frontend within the asynchronous promises so as to ensure my array of results was hydrated before execution.
+
+I did this adding my unreturned promises for each individual ID's API call to an array and calling on `Promise.all(myArrayOfPromises)` instead to let them all pass through one `then()` to unify my results to the front end. You can see my code in `/routes/users.js` for now, a file name I simply haven't renamed yet from the default app generation.
+
 ## Instructions to run
 
 If you're me on my ubuntu, you'll run these.

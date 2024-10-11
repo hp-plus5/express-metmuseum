@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+  h1= title 
+  
+  if apiResult
+    ul
+      each result in apiResult
+        li
+          img(src=result.primaryImageSmall, alt="An image of the object from the Metropolitan Museum of Art").framed
+          .placard
+            h3.artwork_title
+              a(href=result.objectWikidata_URL) #{result.title}
+            h4.artist_name
+              a(href=result.artistWikidata_URL) #{result.artistDisplayName}
+            p.creation_date= result.objectDate
+            p.artwork_medium= result.medium
+            p.museum_details 
+              a(href=result.linkResource) Metropolitan Museum of Art
+  else 
+    p No art here yet!
